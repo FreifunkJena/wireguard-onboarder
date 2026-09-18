@@ -1,0 +1,25 @@
+Freifunk Jena WireGuard Onboarder
+=================================
+
+Configure /etc/freifunk-jena-wireguard-onboarder/config.ini before enabling
+the service. You need two WireGuard interfaces:
+
+- [wireguard.innercity] — LibreMesh node IP (client-supplied AllowedIPs)
+- [wireguard.wan] — WAN uplink; server allocates AllowedIPs from address_pool
+
+Align interface names, config paths, CIDRs, and reserved addresses with your
+VPN before starting.
+
+There is no application authentication. Bind to a trusted network or restrict
+the port with a firewall.
+
+Enable and start:
+
+  systemctl enable --now freifunk-jena-wireguard-onboarder.service
+
+Managed peer state is stored in
+/var/lib/freifunk-jena-wireguard-onboarder/state.json. Only peers recorded
+there are expired by the watchdog (removed from both tunnel confs).
+
+LibreMesh nodes should POST to /register on boot and whenever their node IP
+changes. The JSON response includes the allocated WAN address.

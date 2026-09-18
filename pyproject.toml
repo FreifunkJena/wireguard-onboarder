@@ -1,0 +1,22 @@
+[project]
+name = "freifunk-jena-wireguard-onboarder"
+version = "0.1.0"
+description = "WireGuard peer onboard HTTP service for Freifunk Jena LibreMesh nodes"
+requires-python = ">=3.11"
+license = { text = "AGPL-3.0-or-later" }
+authors = [
+  { name = "Martin Michel", email = "martin@mmdev.app" },
+]
+maintainers = [
+  { name = "Martin Michel", email = "martin@mmdev.app" },
+]
+
+[project.scripts]
+freifunk-jena-wireguard-onboarder = "freifunk_jena_wireguard_onboarder.__main__:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

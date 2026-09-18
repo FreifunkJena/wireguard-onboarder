@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Pure Python; nothing to compile.
+
+override_dh_auto_test:
+	PYTHONPATH=src python3 -m unittest discover -s tests -v
+
+override_dh_auto_install:
+	dh_auto_install
+	install -d debian/freifunk-jena-wireguard-onboarder/usr/lib/freifunk-jena-wireguard-onboarder
+	cp -a src/freifunk_jena_wireguard_onboarder \
+		debian/freifunk-jena-wireguard-onboarder/usr/lib/freifunk-jena-wireguard-onboarder/
+	install -d debian/freifunk-jena-wireguard-onboarder/usr/bin
+	install -m 0755 debian/freifunk-jena-wireguard-onboarder.wrapper \
+		debian/freifunk-jena-wireguard-onboarder/usr/bin/freifunk-jena-wireguard-onboarder

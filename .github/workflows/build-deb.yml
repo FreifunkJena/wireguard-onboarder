@@ -1,0 +1,32 @@
+name: Build Debian package
+
+on:
+  push:
+    branches: [main, master]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            debhelper \
+            dpkg-dev \
+            python3
+
+      - name: Build package
+        run: dpkg-buildpackage -us -uc -b
+
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: freifunk-jena-wireguard-onboarder
+          path: ../*.deb
+          if-no-files-found: error

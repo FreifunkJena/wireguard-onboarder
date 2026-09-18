@@ -1,0 +1,17 @@
+[Unit]
+Description=Freifunk Jena WireGuard onboarder
+Documentation=file:///usr/share/doc/freifunk-jena-wireguard-onboarder/README.Debian
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/freifunk-jena-wireguard-onboarder -c /etc/freifunk-jena-wireguard-onboarder/config.ini
+Restart=on-failure
+RestartSec=5
+# Needs write access to WireGuard conf and wg(8).
+AmbientCapabilities=
+NoNewPrivileges=false
+
+[Install]
+WantedBy=multi-user.target

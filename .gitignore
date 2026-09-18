@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+.venv/
+venv/
+.env
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Debian packaging build artifacts
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/tmp/
+debian/*.debhelper
+debian/*.debhelper.log
+debian/*.substvars
+debian/freifunk-jena-wireguard-onboarder/
+
+# dpkg-buildpackage outputs
+*.deb
+*.ddeb
+*.udeb
+*.dsc
+*.changes
+*.buildinfo
+*.build
+../*.deb
+../*.dsc
+../*.changes
+../*.buildinfo
+../*.build
+../*.tar.xz
+../*.tar.gz
+
+# Editors / OS
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+.DS_Store

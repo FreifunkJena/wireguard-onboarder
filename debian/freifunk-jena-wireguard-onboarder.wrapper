@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+import runpy
+import sys
+
+sys.path.insert(
+    0, "/usr/lib/freifunk-jena-wireguard-onboarder"
+)
+runpy.run_module("freifunk_jena_wireguard_onboarder", run_name="__main__")

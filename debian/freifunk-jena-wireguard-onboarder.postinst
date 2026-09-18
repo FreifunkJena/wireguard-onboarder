@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+configure)
+	mkdir -p /var/lib/freifunk-jena-wireguard-onboarder
+	chmod 750 /var/lib/freifunk-jena-wireguard-onboarder || true
+	;;
+esac
+
+#DEBHELPER#
+
+exit 0
