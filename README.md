@@ -80,6 +80,25 @@ authentication**; restrict listen address or firewall the port.
 LibreMesh nodes should call `/register` on boot, when the node IP changes, and
 after long offline periods.
 
+## Install from the Debian package
+
+The CI workflow publishes a `.deb` on each `v*` tag. Download
+`freifunk-jena-wireguard-onboarder_0.0.1-1_all.deb` from
+[Releases](https://github.com/FreifunkJena/wireguard-onboarder/releases)
+and install it:
+
+```sh
+sudo apt install ./freifunk-jena-wireguard-onboarder_0.0.1-1_all.deb
+```
+
+That pulls in `python3` and `wireguard-tools`. Edit
+`/etc/freifunk-jena-wireguard-onboarder/config.ini` so the innercity and WAN
+interfaces match the host, then start the service:
+
+```sh
+sudo systemctl enable --now freifunk-jena-wireguard-onboarder.service
+```
+
 ## Build the Debian package
 
 ```sh

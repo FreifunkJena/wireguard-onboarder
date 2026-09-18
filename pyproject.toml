@@ -1,6 +1,6 @@
 [project]
 name = "freifunk-jena-wireguard-onboarder"
-version = "0.1.0"
+version = "0.0.1"
 description = "WireGuard peer onboard HTTP service for Freifunk Jena LibreMesh nodes"
 requires-python = ">=3.11"
 license = { text = "AGPL-3.0-or-later" }
